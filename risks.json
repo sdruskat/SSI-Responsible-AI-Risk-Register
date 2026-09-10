@@ -7,7 +7,7 @@
     "Reach": "Very High",
     "Mitigations": "Require human review by someone with relevant domain knowledge. Use human verified tests that check substantive correctness rather than only syntax or execution. Document where AI-assisted code has been used in research software development.",
     "Ownership": "RSEs, researchers, project leads, institutions",
-    "Examples": "",
+    "Best Practice Examples": "",
     "Related Risks": "",
     "Tags": "Software Sustainability, Research Integrity, People and Professional Practice, Training and Development",
     "Issue": "#169",
@@ -15,14 +15,630 @@
     "Maintainer Notes": "",
     "related_risk_refs": [],
     "related_risk_urls": [],
-    "issue_url": "https://github.com/jshng-glasgow/SSI-Responsbile-AI-Risk-Register/issues/169",
+    "issue_url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/169",
     "update_refs": [
       "#169"
     ],
     "update_urls": [
       {
         "label": "#169",
-        "url": "https://github.com/jshng-glasgow/SSI-Responsbile-AI-Risk-Register/issues/169"
+        "url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/169"
+      }
+    ]
+  },
+  {
+    "Issue Title": "Proprietary code leakage",
+    "Description": "When using agents in an IDE, it's possible that the agent has access to proprietary code.",
+    "Likelihood": "High",
+    "Severity": "High",
+    "Reach": "High",
+    "Mitigations": "Not having proprietary code open in the IDE, so that the scope for the agent is limited.",
+    "Ownership": "Individual software engineers and project managers.",
+    "Best Practice Examples": "",
+    "Related Risks": "",
+    "Tags": "Privacy and Security",
+    "Issue": "#173",
+    "Updates": "#173",
+    "Maintainer Notes": "",
+    "related_risk_refs": [],
+    "related_risk_urls": [],
+    "issue_url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/173",
+    "update_refs": [
+      "#173"
+    ],
+    "update_urls": [
+      {
+        "label": "#173",
+        "url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/173"
+      }
+    ]
+  },
+  {
+    "Issue Title": "AI-generated tests may miss edge cases",
+    "Description": "AI generated tests may appear to be complete and may pass test coverage metrics. However, important edge cases may be missed, such as the inputs of invalid data. Errors in tests can result in serious uncaught bugs, resulting in invalid analyses, error-prone code execution, or brittle software. Negative consequences may not be immediately apparent, and may emerge at a much later day. This could affect any project that uses automated tests.",
+    "Likelihood": "Very High",
+    "Severity": "High",
+    "Reach": "Very High",
+    "Mitigations": "Tests should require human review, and effort should be taken to think about edge cases. Tests should reflect the real-world uses of any functionality. Document when tests have been AI-generated.",
+    "Ownership": "RSEs, researchers, project leads, institutions",
+    "Best Practice Examples": "",
+    "Related Risks": "#169",
+    "Tags": "Privacy and Security, Research Integrity, Software Sustainability, Training and Development, People and Professional Practice",
+    "Issue": "#174",
+    "Updates": "#174",
+    "Maintainer Notes": "",
+    "related_risk_refs": [
+      "#169"
+    ],
+    "related_risk_urls": [
+      {
+        "label": "#169",
+        "url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/169"
+      }
+    ],
+    "issue_url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/174",
+    "update_refs": [
+      "#174"
+    ],
+    "update_urls": [
+      {
+        "label": "#174",
+        "url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/174"
+      }
+    ]
+  },
+  {
+    "Issue Title": "Personal data entered into an online LLM",
+    "Description": "Clinicians and medical researchers are using online LLMs such as Chat-GPT, Claude, and Gemini more and more to facilitate their administration and research analyses. However, they often use (personal) data obtained from patients and/or participants that may be traceable to specific individuals, such as names, dates of birth, addresses, medical history, visitations, and other data found in medical records. These data may be accidently submitted to an online LLM, knowingly or unknowingly leaking personal data to a third party. Within the EU, this violates the GDPR and goes against good clinical practice (GCP). The ultimate consequences of leaking this kind of personal data are unclear, and may only affect a single or handful of people, but the immediate result is the violation of a patient or participant's right to have ownership over their data. This should be avoided at all costs.\n\nRapid integration of LLMs into workflows leads to individuals using the LLMs who can be relatively low skilled (in that domain), compared to software engineers and IT personnel who have comprehensive understanding of how an LLM operates. This changes the knowledge base of those interacting with the tools and therefore increases the associated risks of misuse.",
+    "Likelihood": "Very High",
+    "Severity": "High",
+    "Reach": "High",
+    "Mitigations": "This requires a double edged approach to tackle, firstly by sufficient guardrails and enforcing the use of LLMs in controlled environments, and secondly by upskilling users in AI literacy and AI safety before they engage with the LLMs. \n\nFor example in medical use cases, proper training of medical researchers and clinicians by raising AI literacy can help to prevent these kind of data breaches from occurring. Implementing a policy to forbid the use of AI tools when analysing data or performing administrative tasks can be unhelpful, as it offers no guarantee of preventing this risk. Instead the introduction of guardrails and guidelines for safe procedures use can help facilitate the responsible use of AI tools.",
+    "Ownership": "The researcher or clinician are responsible in principle, held to account by their research insitute or department heads.",
+    "Best Practice Examples": "This kind of risk is difficult to monitor as it could happen silently without any party involved being aware. The frequency is therefore difficult to determine, and examples are sparse (but will be added to the list in the future).\n\nOrganisations can control this risk by getting licenses and secure sandbox environments for all usage of AI tools by its personnel. This way the organisations data is safe from public access and reuse in LLMs training.\n\nDeveloping guidelines and procedures documents for all users of AI tools within institutions and organisations and mandating internal for staff on these.\n\nEngaging with tool providers to analyse usage of the tools to identify key risk areas, and inform implementation design.",
+    "Related Risks": "",
+    "Tags": "Research Integrity, Privacy and Security, Professional, GDPR, medical data, personally identifiable data",
+    "Issue": "#185",
+    "Updates": "#185, #209, #221",
+    "Maintainer Notes": "",
+    "related_risk_refs": [],
+    "related_risk_urls": [],
+    "issue_url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/185",
+    "update_refs": [
+      "#185",
+      "#209",
+      "#221"
+    ],
+    "update_urls": [
+      {
+        "label": "#185",
+        "url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/185"
+      },
+      {
+        "label": "#209",
+        "url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/209"
+      },
+      {
+        "label": "#221",
+        "url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/221"
+      }
+    ]
+  },
+  {
+    "Issue Title": "Developing research software code that only AI understands",
+    "Description": "Some research software developed with AI may not be understood by any humans.  This means that the code will be very difficult to debug and build upon if AI becomes unavailable or cannot do the debugging. Also, if no one understands exactly how the code is built, researchers cannot be 100% sure what the code is doing, and therefore cannot be 100% sure that any results produced with the software are valid.",
+    "Likelihood": "Very High",
+    "Severity": "Very High",
+    "Reach": "Unknown",
+    "Mitigations": "- Have regular code reviews and ensure that the code is understood\n- RSEs continue to develop software engineering skills rather than relying on AI in place of this\n- Write documentation, explaining how the code works.  If AI is used to generate the docs, a human should ensure they are correct regularly.\n- Institutions should introduce rules or guidance about ensuring understanding of research code.  This could also be required by funders.",
+    "Ownership": "RSEs, researchers, team leads, institutions, funders",
+    "Best Practice Examples": "",
+    "Related Risks": "",
+    "Tags": "People and Professional Practice, Software Sustainability, Research Integrity, Privacy and Security",
+    "Issue": "#183",
+    "Updates": "#183",
+    "Maintainer Notes": "",
+    "related_risk_refs": [],
+    "related_risk_urls": [],
+    "issue_url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/183",
+    "update_refs": [
+      "#183"
+    ],
+    "update_urls": [
+      {
+        "label": "#183",
+        "url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/183"
+      }
+    ]
+  },
+  {
+    "Issue Title": "The use of AI may create a divide between those who can and can't afford it",
+    "Description": "The costs involved in using generative AI to create software may create or exacerbate differences in what is achievable by different groups of people due to their, or their institutions', economic circumstances. These differences will likely compound existing inequalities and are likely to disproportionately impact \"minority\" groups and the global south.",
+    "Likelihood": "High",
+    "Severity": "Very High",
+    "Reach": "Very High",
+    "Mitigations": "",
+    "Ownership": "",
+    "Best Practice Examples": "",
+    "Related Risks": "",
+    "Tags": "Equity and Fairness, Economic",
+    "Issue": "#182",
+    "Updates": "#182",
+    "Maintainer Notes": "",
+    "related_risk_refs": [],
+    "related_risk_urls": [],
+    "issue_url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/182",
+    "update_refs": [
+      "#182"
+    ],
+    "update_urls": [
+      {
+        "label": "#182",
+        "url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/182"
+      }
+    ]
+  },
+  {
+    "Issue Title": "Code generated may be incomprehensible",
+    "Description": "The code generated by AI-tools may work flawlessly, but if it can't be understood by the development team, it can't be maintained if the code requirements change. This results in brittle code, and may lead to over dependency on further AI-assisted development, introducing future risks.",
+    "Likelihood": "Very High",
+    "Severity": "Medium",
+    "Reach": "Very High",
+    "Mitigations": "Don't use any code that can't be readily understood. Where needed, add comments to explain what AI-generated code is doing. Write tests by hand to verify the correctness of any AI generated functionality.",
+    "Ownership": "RSEs, code owners, institutions",
+    "Best Practice Examples": "",
+    "Related Risks": "",
+    "Tags": "Software Sustainability, Training and Development, People and Professional Practice",
+    "Issue": "#181",
+    "Updates": "#181",
+    "Maintainer Notes": "",
+    "related_risk_refs": [],
+    "related_risk_urls": [],
+    "issue_url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/181",
+    "update_refs": [
+      "#181"
+    ],
+    "update_urls": [
+      {
+        "label": "#181",
+        "url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/181"
+      }
+    ]
+  },
+  {
+    "Issue Title": "Copyright infrigement",
+    "Description": "Using copyrighted works to train models may infringe reproduction rights, especially if the model memorises protected content.\nExample: Making a commercial software which has used GPL's licenced code. \nEvidence to be added.",
+    "Likelihood": "High",
+    "Severity": "Very High",
+    "Reach": "Very High",
+    "Mitigations": "- Being able to restrict what the model uses as a source of training / context / source of truth (such as in RAG).",
+    "Ownership": "- Institutions +++\n- Project managers ++",
+    "Best Practice Examples": "",
+    "Related Risks": "#173",
+    "Tags": "Privacy and Security, Research Integrity, Wider Societal Impacts, Governance",
+    "Issue": "#180",
+    "Updates": "#180",
+    "Maintainer Notes": "",
+    "related_risk_refs": [
+      "#173"
+    ],
+    "related_risk_urls": [
+      {
+        "label": "#173",
+        "url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/173"
+      }
+    ],
+    "issue_url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/180",
+    "update_refs": [
+      "#180"
+    ],
+    "update_urls": [
+      {
+        "label": "#180",
+        "url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/180"
+      }
+    ]
+  },
+  {
+    "Issue Title": "Accidental reuse of licensed code",
+    "Description": "AI tools are trained on large collections of open-source software projects, and may reuse functions contained within libraries with incompatible licenses. For example, code may be pulled from a library licensed under GPL3, while the user's library is under MIT. It will not be clear that the code was AI-generated rather than derived directly from another work, which may place the code owners in legal jeopardy.",
+    "Likelihood": "Medium",
+    "Severity": "Very High",
+    "Reach": "Very High",
+    "Mitigations": "Avoid direct reuse of AI-generated code. Document when any code has been AI-generated. Use features of AI systems where available that suppress responses similar to third-party materials or flag similarity to copyrighted code.",
+    "Ownership": "RSEs, institutions, code owners, external stakeholders",
+    "Best Practice Examples": "https://www.linuxfoundation.org/legal/generative-ai",
+    "Related Risks": "#173, #180",
+    "Tags": "Equity and Fairness, People and Professional Practice, Wider Societal Impacts, Research Integrity, Economic, Governance",
+    "Issue": "#178",
+    "Updates": "#178, #213",
+    "Maintainer Notes": "",
+    "related_risk_refs": [
+      "#173",
+      "#180"
+    ],
+    "related_risk_urls": [
+      {
+        "label": "#173",
+        "url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/173"
+      },
+      {
+        "label": "#180",
+        "url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/180"
+      }
+    ],
+    "issue_url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/178",
+    "update_refs": [
+      "#178",
+      "#213"
+    ],
+    "update_urls": [
+      {
+        "label": "#178",
+        "url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/178"
+      },
+      {
+        "label": "#213",
+        "url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/213"
+      }
+    ]
+  },
+  {
+    "Issue Title": "AI-generated code review hallucinating issues can waste the team's time",
+    "Description": "AI-generated code review highlights many issues and vulnerabilities in code submissions. These can offer good insights into potential problems in the code's implementations, and can catch issues that a human reviewer may miss, but they can also hallucinate problems with perfectly fine implementations. This can lead to extended review periods and a lot of wasted time trying to hunt and squash bugs that are not genuinely there.",
+    "Likelihood": "Medium",
+    "Severity": "Low",
+    "Reach": "Low",
+    "Mitigations": "Considering the severity of the issues discussed by the AI review, and whether the time investment of the team to squash them is worthwhile",
+    "Ownership": "",
+    "Best Practice Examples": "",
+    "Related Risks": "",
+    "Tags": "Research Integrity",
+    "Issue": "#177",
+    "Updates": "#177",
+    "Maintainer Notes": "",
+    "related_risk_refs": [],
+    "related_risk_urls": [],
+    "issue_url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/177",
+    "update_refs": [
+      "#177"
+    ],
+    "update_urls": [
+      {
+        "label": "#177",
+        "url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/177"
+      }
+    ]
+  },
+  {
+    "Issue Title": "AI-generated code can lead to a reduced logical development and design thinking ability of the author",
+    "Description": "Some software must be understandable or maintainable by humans, for example for legal or policy reasons. Research software developed with AI may not be understood by members of the software’s maintenance team. This means that the code will be very difficult to debug and build upon if AI becomes unavailable or cannot do the debugging. Also, if no one understands exactly how the code is built, researchers cannot be sure what the code is doing, and therefore cannot be sure that any results produced with the software are valid.",
+    "Likelihood": "Very High",
+    "Severity": "Very High",
+    "Reach": "Unknown",
+    "Mitigations": "- Have regular code reviews and ensure that the code is understood\n- RSEs continue to develop software engineering skills rather than relying on AI in place of this\n- Write documentation, explaining how the code works. If AI is used to generate the docs, a human should ensure they are correct regularly.\n- Institutions should introduce rules or guidance about ensuring understanding of research code, and the use of generative AI in developing it. This could also be required by funders.\n- Storing the AI’s instructions/specifications - e.g. plan.md and/or original prompts - in text files alongside the software’s code.",
+    "Ownership": "educators, institutions, and tool developers",
+    "Best Practice Examples": "The inability to understand code also applies to proprietary closed-source software (regardless of the use of generative AI). The same mitigation strategies for managing proprietary code can also be applied to AI generated code.",
+    "Related Risks": "#181, #183",
+    "Tags": "Training and Development",
+    "Issue": "#175",
+    "Updates": "#175, #222",
+    "Maintainer Notes": "",
+    "related_risk_refs": [
+      "#181",
+      "#183"
+    ],
+    "related_risk_urls": [
+      {
+        "label": "#181",
+        "url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/181"
+      },
+      {
+        "label": "#183",
+        "url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/183"
+      }
+    ],
+    "issue_url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/175",
+    "update_refs": [
+      "#175",
+      "#222"
+    ],
+    "update_urls": [
+      {
+        "label": "#175",
+        "url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/175"
+      },
+      {
+        "label": "#222",
+        "url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/222"
+      }
+    ]
+  },
+  {
+    "Issue Title": "Accumulation/scaling of technical debt",
+    "Description": "Use of AI to develop (research) software can over time lead to (by itself, or scaling of existing) large-scale structural issues or fragility in codebases (technical debt), especially when used in a piecemeal manner without considerable care to align with a system's/tool's long-term design, architecture and scope, or without supervision or review of a human with significant domain knowledge concerning the tool.",
+    "Likelihood": "Medium",
+    "Severity": "Medium",
+    "Reach": "High",
+    "Mitigations": "* robust review and quality control of code changes;\n* unit tests written by a human or at least another tool independently;\n* mandatory code review for any AI contributions, ideally by someone with domain knowledge and contextual awareness of the codebase and its usage and goals;\n* enforced patterns for architecture/design and scope of the codebase in question;\n* apply any AI-generated code in small, self-contained units and not larger (by code line count) or broader (in functionality) PRs;\n* prompt engineering good practice so that prompts include, as well as queries to generate code to solve a problem, definition of the underlying codebase details such as scopes, aims, design, relevant data model(s) or standards, schemas, interfaces etc.",
+    "Ownership": "Team leads, RSEs, researchers, institutions, funders",
+    "Best Practice Examples": "",
+    "Related Risks": "#183",
+    "Tags": "Software Sustainability",
+    "Issue": "#187",
+    "Updates": "#187",
+    "Maintainer Notes": "",
+    "related_risk_refs": [
+      "#183"
+    ],
+    "related_risk_urls": [
+      {
+        "label": "#183",
+        "url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/183"
+      }
+    ],
+    "issue_url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/187",
+    "update_refs": [
+      "#187"
+    ],
+    "update_urls": [
+      {
+        "label": "#187",
+        "url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/187"
+      }
+    ]
+  },
+  {
+    "Issue Title": "False positive test behaviour (not testing ground truth behaviour)",
+    "Description": "When AI tools are used to create research software inclusive of the underlying tests, there is risk that the tests don't test for the correct intended behaviour, and therefore if they 'pass' they correspond to a false positive result.\n\nConsequently the software which is believed to be behaving as intended to some extent as judged by the tests (as governed by their coverage and assumed robustness, etc.), and therefore is relied upon, can in fact not be working as intended which can cause issues of accuracy, quality etc. and can mean breaking changes may be missed in the case of regression testing.",
+    "Likelihood": "Medium",
+    "Severity": "Medium",
+    "Reach": "Unknown",
+    "Mitigations": "* robust (ideally human) review of any testing added or updated to a codebase;\n* diversity of testing approaches (unit, integration, acceptance, UI if applicable, etc. ) and infrastructure (automated/CI vs. human-run suites) to fortify validation of correct/intended behaviour.",
+    "Ownership": "RSEs, institutions, code owners, tool developers",
+    "Best Practice Examples": "",
+    "Related Risks": "#174",
+    "Tags": "Software Sustainability",
+    "Issue": "#188",
+    "Updates": "#188",
+    "Maintainer Notes": "",
+    "related_risk_refs": [
+      "#174"
+    ],
+    "related_risk_urls": [
+      {
+        "label": "#174",
+        "url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/174"
+      }
+    ],
+    "issue_url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/188",
+    "update_refs": [
+      "#188"
+    ],
+    "update_urls": [
+      {
+        "label": "#188",
+        "url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/188"
+      }
+    ]
+  },
+  {
+    "Issue Title": "Generated code less performant/effiicent & hardware-aware",
+    "Description": "Code generated with AI tools may be offered as a plausible solution based on only (or not much more than) being functional, without consideration for the performance/efficiency and the underlying hardware the code is run on - that is, it can often generate code which is computationally naive.\n\nAs a consequence, such code and contributions can slow the tool/library in question and in turn cause it to be inefficient, badly scaling, or having bottlenecks, leading to the need for more power hence higher cost and GHG emissions.",
+    "Likelihood": "High",
+    "Severity": "Medium",
+    "Reach": "Medium",
+    "Mitigations": "* thoroughly review AI-generated code for performance aspects including suitability for the underlying hardware it will be run on (if known);\n* measure, profile and optimise code continuously on intended hardware to validate performance.",
+    "Ownership": "RSEs, RSE managers, team leads, project leads, institutions",
+    "Best Practice Examples": "",
+    "Related Risks": "",
+    "Tags": "Software Sustainability",
+    "Issue": "#189",
+    "Updates": "#189",
+    "Maintainer Notes": "",
+    "related_risk_refs": [],
+    "related_risk_urls": [],
+    "issue_url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/189",
+    "update_refs": [
+      "#189"
+    ],
+    "update_urls": [
+      {
+        "label": "#189",
+        "url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/189"
+      }
+    ]
+  },
+  {
+    "Issue Title": "Experience bottleneck from loss of entry-level RSE roles",
+    "Description": "The capabilities of (even free) GenAI mean that there's a general workplace trend for teams reducing their intake at entry-level and/or more junior roles to cut costs, which could feasibly affect RSE and aligned roles and be a trend specifically across the RSE workforce, too.\n\nThis loss could lead to various issues, but the risk highlighted here in particular is the experience bottleneck whereby fewer junior RSEs being in the workforce in the present leads to fewer mid-level and in turn senior RSEs in the future (because generally people progress from junior to mid-level etc. in their career rather than transitioning in as more senior from some other career). In short, there is the risk of a reduced pipeline of experienced RSEs in future.",
+    "Likelihood": "Medium",
+    "Severity": "Medium",
+    "Reach": "High",
+    "Mitigations": "* reframing rather than eliminating entry-level/junior roles;\n* investing in structured career schemes starting at junior (e.g. graduate) level;\n* strengthen the RSE career ladder and recognition of the RSE role to support those below senior level in particular.",
+    "Ownership": "RSE managers, team leads, project leads, institutions",
+    "Best Practice Examples": "",
+    "Related Risks": "",
+    "Tags": "People and Professional Practice, Equity and Fairness, Training and Development",
+    "Issue": "#190",
+    "Updates": "#190",
+    "Maintainer Notes": "",
+    "related_risk_refs": [],
+    "related_risk_urls": [],
+    "issue_url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/190",
+    "update_refs": [
+      "#190"
+    ],
+    "update_urls": [
+      {
+        "label": "#190",
+        "url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/190"
+      }
+    ]
+  },
+  {
+    "Issue Title": "Creates dependencies on deprecated libraries",
+    "Description": "AI may attempt to install deprecated packages or refer to deprecated apis. \nThe potential impact could be anything from the code not working as expected to the use of an insecure deprecated package version.",
+    "Likelihood": "Medium",
+    "Severity": "High",
+    "Reach": "High",
+    "Mitigations": "Using dependency checkers such as Dependabot. Any packages the AI installs should be cross checked by a human developer.",
+    "Ownership": "RSEs, Github Administrators",
+    "Best Practice Examples": "",
+    "Related Risks": "#117",
+    "Tags": "Privacy and Security, Software Sustainability",
+    "Issue": "#196",
+    "Updates": "#196",
+    "Maintainer Notes": "",
+    "related_risk_refs": [
+      "#117"
+    ],
+    "related_risk_urls": [
+      {
+        "label": "#117",
+        "url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/117"
+      }
+    ],
+    "issue_url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/196",
+    "update_refs": [
+      "#196"
+    ],
+    "update_urls": [
+      {
+        "label": "#196",
+        "url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/196"
+      }
+    ]
+  },
+  {
+    "Issue Title": "Responsibility to sustainable computing",
+    "Description": "Correct type \"IA\" in description to \"AI\"",
+    "Likelihood": "High",
+    "Severity": "Medium",
+    "Reach": "High",
+    "Mitigations": "Researchers should only use AI as and when needed, and should work to prompt in a way which minimizes token consumption. Where possible, researchers should look to use smaller, locally hosted models which have reduced power consumption. It may also be possible to offset the environmental damage of AI use by investing in green projects and renewable energy sources.",
+    "Ownership": "Practitioners, institutions, tool developers.",
+    "Best Practice Examples": "Green DiSK have some great resources on green computing https://www.software.ac.uk/GreenDiSC",
+    "Related Risks": "",
+    "Tags": "Environmental, Wider Societal Impacts",
+    "Issue": "#208",
+    "Updates": "#208, #212",
+    "Maintainer Notes": "",
+    "related_risk_refs": [],
+    "related_risk_urls": [],
+    "issue_url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/208",
+    "update_refs": [
+      "#208",
+      "#212"
+    ],
+    "update_urls": [
+      {
+        "label": "#208",
+        "url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/208"
+      },
+      {
+        "label": "#212",
+        "url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/212"
+      }
+    ]
+  },
+  {
+    "Issue Title": "Rising electricity prices",
+    "Description": "Datacentres built around residential areas are causing electricity prices to rise in said areas.",
+    "Likelihood": "High",
+    "Severity": "High",
+    "Reach": "Medium",
+    "Mitigations": "The mitigation can affect other risks. For example, upgrading the grid leads to electricity prices decreasing, but it could also lead to environmental problems. Perhaps another mitigation is to make sure datacentres are using more sustainable technology that requires less power.",
+    "Ownership": "Governments, technology companies.",
+    "Best Practice Examples": "ResponsibleAi, Ada Lovelace Institute",
+    "Related Risks": "",
+    "Tags": "Economic, Environmental, Governance, RSECon26",
+    "Issue": "#216",
+    "Updates": "#216, #223",
+    "Maintainer Notes": "",
+    "related_risk_refs": [],
+    "related_risk_urls": [],
+    "issue_url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/216",
+    "update_refs": [
+      "#216",
+      "#223"
+    ],
+    "update_urls": [
+      {
+        "label": "#216",
+        "url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/216"
+      },
+      {
+        "label": "#223",
+        "url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/223"
+      }
+    ]
+  },
+  {
+    "Issue Title": "Climate change due to AI use",
+    "Description": "If the energy used for running data centres that host AI models emits carbon in being produced, then use of AI will emit greenhouse gases that contribute to climate change.",
+    "Likelihood": "High",
+    "Severity": "High",
+    "Reach": "Very High",
+    "Mitigations": "Researchers should only use AI as and when needed, and should work to prompt in a way which minimizes token consumption. Users should select the smallest model that is capable of performing the tasks. Users should be aware of the energy use of the compute platform and consider carbon emissions per token in selecting the platform.",
+    "Ownership": "Practitioners, institutions, tool developers, infrastructure engineers.",
+    "Best Practice Examples": "Green DiSK have some great resources on green computing https://www.software.ac.uk/GreenDiSC",
+    "Related Risks": "#208",
+    "Tags": "Environmental, RSECon26, ClimateChange",
+    "Issue": "#218",
+    "Updates": "#218",
+    "Maintainer Notes": "",
+    "related_risk_refs": [
+      "#208"
+    ],
+    "related_risk_urls": [
+      {
+        "label": "#208",
+        "url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/208"
+      }
+    ],
+    "issue_url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/218",
+    "update_refs": [
+      "#218"
+    ],
+    "update_urls": [
+      {
+        "label": "#218",
+        "url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/218"
+      }
+    ]
+  },
+  {
+    "Issue Title": "People speaking minority or \"low resource\" languages make get inferior results from AI as there is less training data in those languages",
+    "Description": "Many large language models are trained on data in the main global languages (e.g. English, Chinese). Minority or under-resourced or low resource languages typically have far less representation in LLM training data.  Although LLMs can process other languages their results may be of lower quality in low resource languages, so speakers of these languages may be getting less benefit from AI.",
+    "Likelihood": "Low",
+    "Severity": "Medium",
+    "Reach": "Medium",
+    "Mitigations": "Make AI users aware of the issues around using AI with different languages. Develop best practices for using LLMs, which could include translating prompt into english as an initial step and then asking question in english, and then translating back.",
+    "Ownership": "AI model developers, AI service providers, IT departments, providers of training in good research practices.",
+    "Best Practice Examples": "No easy way to deal with this risk as it requires retraining (or fine tuning) models with low resource languages, which may require producing new training data, for example by scanning analog resources like printed books and magazines. \nUser need to be aware of the capabilities of the models they are using and select newer models that are better at low resource languages.",
+    "Related Risks": "#182",
+    "Tags": "Equity and Fairness, #RSECon26, GlobalSouth, Language",
+    "Issue": "#224",
+    "Updates": "#224",
+    "Maintainer Notes": "",
+    "related_risk_refs": [
+      "#182"
+    ],
+    "related_risk_urls": [
+      {
+        "label": "#182",
+        "url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/182"
+      }
+    ],
+    "issue_url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/224",
+    "update_refs": [
+      "#224"
+    ],
+    "update_urls": [
+      {
+        "label": "#224",
+        "url": "https://github.com/jshng-glasgow/Responsible-AI-Risk-Register/issues/224"
       }
     ]
   }

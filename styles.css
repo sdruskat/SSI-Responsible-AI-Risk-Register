@@ -1,13 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Geologica:wght@500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap");
+
 :root {
-  --page-bg: #f6f1e8;
-  --panel-bg: rgba(255, 255, 255, 0.85);
-  --card-bg: rgba(255, 252, 247, 0.96);
-  --text-main: #1f2933;
-  --text-soft: #52606d;
-  --border: rgba(31, 41, 51, 0.12);
-  --accent: #1f6f5f;
-  --accent-strong: #12473d;
-  --shadow: 0 18px 50px rgba(31, 41, 51, 0.12);
+  --dark-navy: #262d3d;
+  --slate-blue: #355a7b;
+  --stone-grey: #c3beb6;
+  --paper-white: #f0eee9;
+  --institute-red: #d2232a;
+  --page-bg: var(--paper-white);
+  --panel-bg: #ffffff;
+  --card-bg: #ffffff;
+  --text-main: var(--dark-navy);
+  --text-soft: var(--slate-blue);
+  --border: var(--stone-grey);
+  --accent: var(--institute-red);
+  --accent-strong: var(--dark-navy);
+  --shadow: 0 12px 30px #c3beb6;
 }
 
 * {
@@ -16,12 +23,9 @@
 
 body {
   margin: 0;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Work Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: var(--text-main);
-  background:
-    radial-gradient(circle at top left, rgba(31, 111, 95, 0.12), transparent 28%),
-    radial-gradient(circle at top right, rgba(196, 127, 46, 0.14), transparent 24%),
-    linear-gradient(180deg, #f8f4ec 0%, var(--page-bg) 100%);
+  background: var(--page-bg);
 }
 
 a {
@@ -35,6 +39,7 @@ a {
 }
 
 .hero,
+.view-switcher,
 .controls-panel,
 .results-bar,
 .risk-card {
@@ -44,10 +49,17 @@ a {
 }
 
 .hero {
-  background: linear-gradient(135deg, rgba(18, 71, 61, 0.97), rgba(31, 111, 95, 0.92));
-  color: #fdfcf9;
+  background: var(--dark-navy);
+  color: var(--paper-white);
   border-radius: 28px;
   padding: 36px;
+}
+
+.hero-logo {
+  display: block;
+  width: min(100%, 420px);
+  height: auto;
+  margin-bottom: 28px;
 }
 
 .eyebrow {
@@ -62,6 +74,7 @@ a {
   margin: 0;
   font-size: clamp(2.2rem, 4vw, 4rem);
   line-height: 0.96;
+  font-family: Geologica, "Work Sans", sans-serif;
 }
 
 .intro {
@@ -77,6 +90,39 @@ a {
   margin-top: 24px;
 }
 
+.view-switcher {
+  display: inline-flex;
+  gap: 4px;
+  margin-top: 24px;
+  padding: 5px;
+  border-radius: 16px;
+  background: var(--panel-bg);
+}
+
+.view-tab {
+  min-width: 120px;
+  padding: 10px 18px;
+  border-radius: 11px;
+  color: var(--text-soft);
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+}
+
+.view-tab:hover {
+  background: var(--stone-grey);
+}
+
+.view-tab[aria-current="page"] {
+  background: var(--slate-blue);
+  color: #fff;
+}
+
+.view-tab:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
 .button {
   display: inline-flex;
   align-items: center;
@@ -89,14 +135,14 @@ a {
 }
 
 .button-primary {
-  background: #f6f1e8;
-  color: #17302a;
+  background: var(--paper-white);
+  color: var(--dark-navy);
 }
 
 .button-secondary {
   background: transparent;
-  color: #fdfcf9;
-  border: 1px solid rgba(253, 252, 249, 0.35);
+  color: #fff;
+  border: 1px solid var(--paper-white);
 }
 
 .controls-panel {
@@ -107,6 +153,14 @@ a {
   padding: 18px;
   border-radius: 22px;
   background: var(--panel-bg);
+}
+
+.view-panel .controls-panel {
+  margin-top: 16px;
+}
+
+.resource-controls {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
 .control {
@@ -127,7 +181,7 @@ a {
   padding: 10px 12px;
   border-radius: 12px;
   border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.92);
+  background: #fff;
   color: var(--text-main);
   font: inherit;
 }
@@ -153,32 +207,107 @@ a {
 
 .risk-card {
   border-radius: 24px;
-  padding: 22px;
   background: var(--card-bg);
+  overflow: hidden;
+}
+
+.card-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 22px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.card-summary::-webkit-details-marker {
+  display: none;
+}
+
+.card-summary:hover {
+  background: var(--paper-white);
+}
+
+.card-summary:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: -3px;
 }
 
 .card-header {
   display: grid;
   gap: 14px;
+  min-width: 0;
 }
 
 .card-meta {
+  display: grid;
+  gap: 10px;
+}
+
+.meta-group {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  align-items: start;
+  gap: 10px;
+}
+
+.meta-label {
+  padding-top: 7px;
+  color: var(--text-soft);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.badge-list {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
 }
 
 .card-title {
-  margin: 0;
+  display: block;
   font-size: 1.35rem;
+  font-weight: 700;
   line-height: 1.3;
+  color: var(--dark-navy);
+  font-family: Geologica, "Work Sans", sans-serif;
+}
+
+.toggle-label {
+  flex: 0 0 auto;
+  color: var(--accent-strong);
+  font-size: 0.85rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.toggle-label::after {
+  content: " +";
+  font-size: 1rem;
+}
+
+.when-expanded,
+.risk-details[open] .when-collapsed {
+  display: none;
+}
+
+.risk-details[open] .when-expanded {
+  display: inline;
+}
+
+.risk-details[open] .toggle-label::after {
+  content: " −";
 }
 
 .card-grid {
   display: grid;
   grid-template-columns: minmax(110px, 140px) 1fr;
   gap: 10px 18px;
-  margin: 18px 0 0;
+  margin: 0;
+  padding: 0 22px 14px;
+  border-top: 1px solid var(--border);
+  padding-top: 18px;
 }
 
 .card-grid dt {
@@ -202,32 +331,89 @@ a {
   border: 1px solid transparent;
 }
 
-.tone-very-low,
+.tone-very-low {
+  background: #fff;
+  color: var(--institute-red);
+  border-color: var(--institute-red);
+}
+
 .tone-low {
-  background: rgba(46, 125, 50, 0.12);
-  color: #256029;
+  background: #fbe9ea;
+  color: var(--institute-red);
+  border-color: var(--institute-red);
 }
 
 .tone-medium {
-  background: rgba(194, 127, 46, 0.14);
-  color: #8c5314;
+  background: #efb2b4;
+  color: var(--institute-red);
+  border-color: var(--institute-red);
 }
 
-.tone-high,
+.tone-high {
+  background: #d52e35;
+  color: #fff;
+  border-color: #fff;
+  box-shadow: 0 0 0 1px #d52e35;
+}
+
 .tone-very-high {
-  background: rgba(176, 58, 46, 0.12);
-  color: #9f3024;
+  background: var(--institute-red);
+  color: #fff;
+  border-color: #fff;
+  box-shadow: 0 0 0 2px var(--institute-red);
 }
 
 .tone-unknown {
-  background: rgba(82, 96, 109, 0.12);
-  color: #52606d;
+  background: var(--stone-grey);
+  color: var(--dark-navy);
+  border-color: var(--stone-grey);
 }
 
 .tone-tag {
-  background: rgba(18, 71, 61, 0.1);
-  color: #12473d;
-  border-color: rgba(18, 71, 61, 0.18);
+  background: var(--slate-blue);
+  color: #fff;
+  border-color: var(--slate-blue);
+}
+
+.card-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 22px 22px;
+}
+
+.update-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 8px 16px;
+  border: 2px solid var(--accent-strong);
+  border-radius: 10px;
+  color: var(--accent-strong);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.update-button:hover {
+  background: var(--slate-blue);
+  color: #fff;
+}
+
+.update-button:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.tone-resource {
+  background: var(--slate-blue);
+  color: #fff;
+  border-color: var(--slate-blue);
+}
+
+.tone-year {
+  background: var(--stone-grey);
+  color: var(--dark-navy);
+  border-color: var(--stone-grey);
 }
 
 .muted,
@@ -256,6 +442,7 @@ a {
   }
 
   .hero,
+  .view-switcher,
   .controls-panel,
   .results-bar,
   .risk-card {
@@ -270,9 +457,42 @@ a {
     grid-template-columns: 1fr;
   }
 
+  .view-switcher {
+    display: flex;
+  }
+
+  .view-tab {
+    flex: 1;
+    min-width: 0;
+  }
+
   .card-grid {
     grid-template-columns: 1fr;
     gap: 6px;
+  }
+
+  .card-summary {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+    padding: 20px;
+  }
+
+  .meta-group {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .meta-label {
+    padding-top: 0;
+  }
+
+  .card-grid {
+    padding: 18px 20px 14px;
+  }
+
+  .card-footer {
+    padding: 0 20px 20px;
   }
 
   .card-grid dt {
